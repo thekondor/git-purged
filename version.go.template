@@ -1,0 +1,11 @@
+// This file is a part of 'git-purged' tool, http://thekondor.net
+// Generated automatically. Should not be edited manually.
+
+package main
+
+const (
+    BuildGitOrigin = "%BUILD_GIT_ORIGIN%"
+    BuildGitCommit = "%BUILD_GIT_COMMIT%"
+    BuildDate = "%BUILD_DATE%"
+)
+
