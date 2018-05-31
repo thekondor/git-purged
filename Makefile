@@ -35,11 +35,11 @@ _version_file: _build_dir
 
 	@echo - Collecting build version details
 	$(eval GIT_ORIGIN:=$(shell git config --get remote.origin.url || (echo -n local/; git rev-parse --abbrev-ref HEAD) ))
-	@sed -i -e 's@%BUILD_GIT_ORIGIN%@${GIT_ORIGIN}@g' ${BUILD_VERSION_FN}
+	@sed -i -e 's^%BUILD_GIT_ORIGIN%^${GIT_ORIGIN}^g' ${BUILD_VERSION_FN}
 	$(eval GIT_COMMIT:=$(shell git log -1 --format=%h))
-	@sed -i -e 's@%BUILD_GIT_COMMIT%@${GIT_COMMIT}@g' ${BUILD_VERSION_FN}
+	@sed -i -e 's^%BUILD_GIT_COMMIT%^${GIT_COMMIT}^g' ${BUILD_VERSION_FN}
 	$(eval BUILD_DATE:=$(shell date +%s))
-	@sed -i -e 's@%BUILD_DATE%@${BUILD_DATE}@g' ${BUILD_VERSION_FN}
+	@sed -i -e 's^%BUILD_DATE%^${BUILD_DATE}^g' ${BUILD_VERSION_FN}
 	@echo - Build version ORIGIN: ${GIT_ORIGIN}, COMMIT: ${GIT_COMMIT}, DATE: ${BUILD_DATE}
 
 	@ln -sf ${BUILD_VERSION_FN} ./${VERSION_AUTOGEN_FN}
